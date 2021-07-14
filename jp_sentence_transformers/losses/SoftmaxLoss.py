@@ -1,12 +1,12 @@
 import torch
 from torch import nn, Tensor
 from typing import Union, Tuple, List, Iterable, Dict
-from ..SentenceTransformer import SentenceTransformer
+from ..JpSentenceTransformer import JpSentenceTransformer
 import logging
 
 class SoftmaxLoss(nn.Module):
     def __init__(self,
-                 model: SentenceTransformer,
+                 model: JpSentenceTransformer,
                  sentence_embedding_dimension: int,
                  num_labels: int,
                  concatenation_sent_rep: bool = True,

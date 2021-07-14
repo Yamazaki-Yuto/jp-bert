@@ -1,10 +1,10 @@
 import torch
 from torch import nn, Tensor
 from typing import Union, Tuple, List, Iterable, Dict
-from ..SentenceTransformer import SentenceTransformer
+from ..JpSentenceTransformer import JpSentenceTransformer
 
 class CosineSimilarityLoss(nn.Module):
-    def __init__(self, model: SentenceTransformer):
+    def __init__(self, model: JpSentenceTransformer):
         super(CosineSimilarityLoss, self).__init__()
         self.model = model
 
