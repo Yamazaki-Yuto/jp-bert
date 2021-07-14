@@ -3,5 +3,5 @@ __DOWNLOAD_SERVER__ = 'https://public.ukp.informatik.tu-darmstadt.de/reimers/sen
 from .datasets import SentencesDataset, SentenceLabelDataset
 from .data_samplers import LabelSampler
 from .LoggingHandler import LoggingHandler
-from .SentenceTransformer import SentenceTransformer
+from .JpSentenceTransformer import JpSentenceTransformer
 
