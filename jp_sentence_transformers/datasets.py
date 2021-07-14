@@ -9,7 +9,7 @@ import torch
 import logging
 import numpy as np
 from tqdm import tqdm
-from . import SentenceTransformer
+from . import JpSentenceTransformer
 from .readers.InputExample import InputExample
 
 
@@ -20,7 +20,7 @@ class SentencesDataset(Dataset):
     The SentenceBertEncoder.smart_batching_collate is required for this to work.
     SmartBatchingDataset does *not* work without it.
     """
-    def __init__(self, examples: List[InputExample], model: SentenceTransformer, show_progress_bar: bool = None, environment: str = None):
+    def __init__(self, examples: List[InputExample], model: JpSentenceTransformer, show_progress_bar: bool = None, environment: str = None):
         """
         Create a new SentencesDataset with the tokenized texts and the labels as Tensor
         """
@@ -31,7 +31,7 @@ class SentencesDataset(Dataset):
 
         self.convert_input_examples(examples, model)
 
-    def convert_input_examples(self, examples: List[InputExample], model: SentenceTransformer):
+    def convert_input_examples(self, examples: List[InputExample], model: JpSentenceTransformer):
         """
         Converts input examples to a SmartBatchingDataset usable to train the model with
         SentenceTransformer.smart_batching_collate as the collate_fn for the DataLoader
@@ -106,7 +106,7 @@ class SentenceLabelDataset(Dataset):
     This also uses smart batching like SentenceDataset.
     """
 
-    def __init__(self, examples: List[InputExample], model: SentenceTransformer, provide_positive: bool = True,
+    def __init__(self, examples: List[InputExample], model: JpSentenceTransformer, provide_positive: bool = True,
                  provide_negative: bool = True):
         """
         Converts input examples to a SentenceLabelDataset usable to train the model with
@@ -134,7 +134,7 @@ class SentenceLabelDataset(Dataset):
         self.positive = provide_positive
         self.negative = provide_negative
 
-    def convert_input_examples(self, examples: List[InputExample], model: SentenceTransformer):
+    def convert_input_examples(self, examples: List[InputExample], model: JpSentenceTransformer):
         """
         Converts input examples to a SentenceLabelDataset.
 
